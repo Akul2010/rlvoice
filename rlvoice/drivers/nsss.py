@@ -1,4 +1,3 @@
-
 from Foundation import *
 from AppKit import NSSpeechSynthesizer
 from PyObjCTools import AppHelper
