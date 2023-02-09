@@ -1,4 +1,6 @@
-<center><b>Credits to nateshmbhat for creating the original library pyttsx3</b></center>
+<b>Credits to nateshmbhat for creating the original library pyttsx3.</b>
+
+This library has not yet been released on PyPI, so the only way to use this right now is to have the project locally cloned.
 
 <h2 align="center">Offline Text To Speech (TTS) converter for Python </h2>
 
