@@ -22,9 +22,9 @@ setup(
    description='Text to Speech (TTS) library for Python 3. Works without internet connection or delay. Supports multiple TTS engines, including Sapi5, nsss, and espeak.',
     long_description=long_description,
     summary='Offline Text to Speech library with multi-engine support',
-    author='Natesh M Bhat',
-    url='https://github.com/nateshmbhat/pyttsx3',
-    author_email='nateshmbhatofficial@gmail.com',
+    author='AkulAI',
+    url='https://github.com/Akul-AI/rlvoice',
+    author_email='akulgoelstudios@gmail.com',
     install_requires=install_requires ,
     keywords=['pyttsx' , 'ivona','pyttsx for python3' , 'TTS for python3' , 'rlvoice' ,'text to speech for python','tts','text to speech','speech','speech synthesis','offline text to speech','offline tts','gtts'],
     classifiers = [
