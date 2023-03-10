@@ -1,4 +1,4 @@
-<b>Credits to nateshmbhat for creating the original library pyttsx3.</b>
+<b>Credits to nateshmbhat for creating the original library rlvoice.</b>
 
 This library has not yet been released on PyPI, so the only way to use this right now is to have the project locally cloned.
 

@@ -1,19 +1,19 @@
-.. module:: pyttsx3
-   :synopsis: The root pyttsx3 package defining the engine factory function
+.. module:: rlvoice
+   :synopsis: The root rlvoice package defining the engine factory function
 
-Using pyttsx3
+Using rlvoice
 ------------
 
-An application invokes the :func:`pyttsx3.init` factory function to get a reference to a :class:`pyttsx3.Engine` instance. During construction, the engine initializes a :class:`pyttsx3.driver.DriverProxy` object responsible for loading a speech engine driver implementation from the :mod:`pyttsx3.drivers` module. After construction, an application uses the engine object to register and unregister event callbacks; produce and stop speech; get and set speech engine properties; and start and stop event loops.
+An application invokes the :func:`rlvoice.init` factory function to get a reference to a :class:`rlvoice.Engine` instance. During construction, the engine initializes a :class:`rlvoice.driver.DriverProxy` object responsible for loading a speech engine driver implementation from the :mod:`rlvoice.drivers` module. After construction, an application uses the engine object to register and unregister event callbacks; produce and stop speech; get and set speech engine properties; and start and stop event loops.
 
 The Engine factory
 ~~~~~~~~~~~~~~~~~~
 
-.. function:: init([driverName : string, debug : bool]) -> pyttsx3.Engine
+.. function:: init([driverName : string, debug : bool]) -> rlvoice.Engine
 
    Gets a reference to an engine instance that will use the given driver. If the requested driver is already in use by another engine instance, that engine is returned. Otherwise, a new engine is created.
 
-   :param driverName: Name of the :mod:`pyttsx3.drivers` module to load and use. Defaults to the best available driver for the platform, currently:
+   :param driverName: Name of the :mod:`rlvoice.drivers` module to load and use. Defaults to the best available driver for the platform, currently:
 
       * `sapi5` - SAPI5 on Windows
       * `nsss` - NSSpeechSynthesizer on Mac OS X
@@ -26,7 +26,7 @@ The Engine factory
 The Engine interface
 ~~~~~~~~~~~~~~~~~~~~
 
-.. module:: pyttsx3.engine
+.. module:: rlvoice.engine
    :synopsis: The module containing the engine implementation
 
 .. class:: Engine
@@ -108,7 +108,7 @@ The Engine interface
 
       .. describe:: voices
 
-         List of :class:`pyttsx3.voice.Voice` descriptor objects.
+         List of :class:`rlvoice.voice.Voice` descriptor objects.
 
       .. describe:: volume
 
@@ -156,7 +156,7 @@ The Engine interface
 
       Starts running an event loop during which queued commands are processed and notifications are fired.
 
-      :param useDriverLoop: True to use the loop provided by the selected driver. False to indicate the caller will enter its own loop after invoking this method. The caller's loop must pump events for the driver in use so that pyttsx3 notifications are delivered properly (e.g., SAPI5 requires a COM message pump). Defaults to True.
+      :param useDriverLoop: True to use the loop provided by the selected driver. False to indicate the caller will enter its own loop after invoking this method. The caller's loop must pump events for the driver in use so that rlvoice notifications are delivered properly (e.g., SAPI5 requires a COM message pump). Defaults to True.
 
    .. method:: stop() -> None
 
@@ -165,7 +165,7 @@ The Engine interface
 The Voice metadata
 ~~~~~~~~~~~~~~~~~~
 
-.. module:: pyttsx3.voice
+.. module:: rlvoice.voice
    :synopsis: The module containing the voice structure implementation
 
 .. class:: Voice
@@ -182,7 +182,7 @@ The Voice metadata
 
    .. attribute:: id
 
-      String identifier of the voice. Used to set the active voice via :meth:`pyttsx3.engine.Engine.setPropertyValue`. This attribute is always defined.
+      String identifier of the voice. Used to set the active voice via :meth:`rlvoice.engine.Engine.setPropertyValue`. This attribute is always defined.
 
    .. attribute:: languages
 
@@ -200,8 +200,8 @@ Speaking text
 
 .. sourcecode:: python
 
-   import pyttsx3
-   engine = pyttsx3.init()
+   import rlvoice
+   engine = rlvoice.init()
    engine.say('Sally sells seashells by the seashore.')
    engine.say('The quick brown fox jumped over the lazy dog.')
    engine.runAndWait()
@@ -212,8 +212,8 @@ Saving voice to a file
 
 .. sourcecode:: python
 
-   import pyttsx3
-   engine = pyttsx3.init()
+   import rlvoice
+   engine = rlvoice.init()
    engine.save_to_file('Hello World' , 'test.mp3')
    engine.runAndWait()
 
@@ -224,14 +224,14 @@ Listening for events
 
 .. sourcecode:: python
 
-   import pyttsx3
+   import rlvoice
    def onStart(name):
       print 'starting', name
    def onWord(name, location, length):
       print 'word', name, location, length
    def onEnd(name, completed):
       print 'finishing', name, completed
-   engine = pyttsx3.init()
+   engine = rlvoice.init()
    engine.connect('started-utterance', onStart)
    engine.connect('started-word', onWord)
    engine.connect('finished-utterance', onEnd)
@@ -243,12 +243,12 @@ Interrupting an utterance
 
 .. sourcecode:: python
 
-   import pyttsx3
+   import rlvoice
    def onWord(name, location, length):
       print 'word', name, location, length
       if location > 10:
          engine.stop()
-   engine = pyttsx3.init()
+   engine = rlvoice.init()
    engine.connect('started-word', onWord)
    engine.say('The quick brown fox jumped over the lazy dog.')
    engine.runAndWait()
@@ -258,7 +258,7 @@ Changing voices
 
 .. sourcecode:: python
 
-   engine = pyttsx3.init()
+   engine = rlvoice.init()
    voices = engine.getProperty('voices')
    for voice in voices:
       engine.setProperty('voice', voice.id)
@@ -270,7 +270,7 @@ Changing speech rate
 
 .. sourcecode:: python
 
-   engine = pyttsx3.init()
+   engine = rlvoice.init()
    rate = engine.getProperty('rate')
    engine.setProperty('rate', rate+50)
    engine.say('The quick brown fox jumped over the lazy dog.')
@@ -281,7 +281,7 @@ Changing volume
 
 .. sourcecode:: python
 
-   engine = pyttsx3.init()
+   engine = rlvoice.init()
    volume = engine.getProperty('volume')
    engine.setProperty('volume', volume-0.25)
    engine.say('The quick brown fox jumped over the lazy dog.')
@@ -292,7 +292,7 @@ Running a driver event loop
 
 .. sourcecode:: python
 
-   engine = pyttsx3.init()
+   engine = rlvoice.init()
    def onStart(name):
       print 'starting', name
    def onWord(name, location, length):
@@ -303,7 +303,7 @@ Running a driver event loop
          engine.say('What a lazy dog!', 'dog')
       elif name == 'dog':
          engine.endLoop()
-   engine = pyttsx3.init()
+   engine = rlvoice.init()
    engine.connect('started-utterance', onStart)
    engine.connect('started-word', onWord)
    engine.connect('finished-utterance', onEnd)
@@ -315,7 +315,7 @@ Using an external event loop
 
 .. sourcecode:: python
 
-   engine = pyttsx3.init()
+   engine = rlvoice.init()
    engine.say('The quick brown fox jumped over the lazy dog.', 'fox')
    engine.startLoop(False)
    # engine.iterate() must be called inside externalLoop()
