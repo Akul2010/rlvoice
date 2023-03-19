@@ -1,6 +1,6 @@
 <b>Credits to nateshmbhat for creating the original library rlvoice.</b>
 
-This library has not yet been released on PyPI, so the only way to use this right now is to have the project locally cloned.
+The library has been released!
 
 <h2 align="center">Offline Text To Speech (TTS) converter for Python </h2>
 
