@@ -17,7 +17,7 @@ with open('README.rst', 'r') as f:
 setup(
     name='rlvoice',
     packages=['rlvoice', 'rlvoice.drivers'],
-    version='1.0.0',
+    version='1.0.1',
    description='Text to Speech (TTS) library for Python 3. Works without internet connection or delay. Supports multiple TTS engines, including Sapi5, nsss, and espeak.',
     long_description=long_description,
     summary='Offline Text to Speech library with multi-engine support',
@@ -38,6 +38,11 @@ setup(
           'Programming Language :: Python :: 3',
           'Programming Language :: Python :: 3.5',
           'Programming Language :: Python :: 3.6',
-          'Programming Language :: Python :: 3.7'
+          'Programming Language :: Python :: 3.7',
+          'Programming Language :: Python :: 3.8'
+          'Programming Language :: Python :: 3.9'
+          'Programming Language :: Python :: 3.10'
+          'Programming Language :: Python :: 3.11'
+          'Programming Language :: Python :: 3.12'
     ],
 )

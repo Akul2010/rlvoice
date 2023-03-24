@@ -66,10 +66,14 @@ class SAPI5Driver(object):
         cwd = os.getcwd()
         stream = comtypes.client.CreateObject('SAPI.SPFileStream')
         stream.Open(filename, SpeechLib.SSFMCreateForWrite)
-        temp_stream = self._tts.AudioOutputStream
-        self._tts.AudioOutputStream = stream
-        self._tts.Speak(fromUtf8(toUtf8(text)))
-        self._tts.AudioOutputStream = temp_stream
+        try:
+            temp_stream = self._tts.AudioOutputStream
+            self._tts.AudioOutputStream = stream
+            self._tts.Speak(fromUtf8(toUtf8(text)))
+            self._tts.AudioOutputStream = temp_stream
+        except:
+            self._tts.AudioOutputStream = stream
+            self._tts.Speak(fromUtf8(toUtf8(text)))
         stream.close()
         os.chdir(cwd)
 

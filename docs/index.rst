@@ -1,8 +1,8 @@
 ==================================
-pyttsx3 - Text-to-speech x-platform
+rlvoice - Text-to-speech x-platform
 ==================================
 
-This documentation describes the pyttsx3 Python package v |release| and was rendered on |today|.
+This documentation describes the rlvoice Python package v |release| and was rendered on |today|.
 
 .. rubric:: Table of Contents
 
@@ -21,6 +21,6 @@ This documentation describes the pyttsx3 Python package v |release| and was rend
 * `Package listing in PyPI`__
 * `Documentation at ReadTheDocs`__
 
-__ https://github.com/nateshmbhat/pyttsx3
-__ http://pypi.python.org/pypi/pyttsx3
-__ https://pyttsx3.readthedocs.org/
+__ https://github.com/nateshmbhat/rlvoice
+__ http://pypi.python.org/pypi/rlvoice
+__ https://rlvoice.readthedocs.org/
