@@ -1,4 +1,4 @@
-<b>Credits to nateshmbhat for creating the original library rlvoice.</b>
+<b>Credits to nateshmbhat for creating the original library pyttsx3.</b>
 
 The library has been released!
 
