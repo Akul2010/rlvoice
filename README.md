@@ -1,4 +1,4 @@
-<b>Credits to nateshmbhat for creating the original library rlvoice.</b>
+<b>Credits to nateshmbhat for creating the original library pyttsx3.</b>
 
 The library has been released!
 
@@ -98,6 +98,7 @@ Full documentation is located in the ```docs``` folder.
 * sapi5
 * nsss
 * espeak
+* flite
 
 Feel free to wrap another text-to-speech engine for use with ``rlvoice``.
 
